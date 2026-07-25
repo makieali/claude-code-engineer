@@ -1,0 +1,23 @@
+{
+  "name": "claude-code-engineer",
+  "displayName": "Claude Code Engineer",
+  "version": "1.0.0",
+  "description": "Run Claude Code as a teammate that owns work end to end: connect it to your repos, servers and task board, plan/execute/review with external verification, verify UI in a real browser, ship PDF manuals, and survive long sessions.",
+  "author": {
+    "name": "Muhammad Ali",
+    "url": "https://github.com/makieali"
+  },
+  "homepage": "https://github.com/makieali/claude-code-engineer",
+  "repository": "https://github.com/makieali/claude-code-engineer",
+  "license": "MIT",
+  "keywords": [
+    "agentic-coding",
+    "skills",
+    "code-review",
+    "planning",
+    "verification",
+    "context-engineering",
+    "documentation",
+    "devops"
+  ]
+}

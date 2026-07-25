@@ -1,0 +1,16 @@
+# Artefacts produced by the skills in this repo, never committed
+.playwright-cli/
+screenshots/
+*.pdf
+node_modules/
+
+# Anything a user's own run might drop here
+plans/
+server-info/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+.DS_Store

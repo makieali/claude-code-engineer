@@ -1,0 +1,130 @@
+/* Print stylesheet for a PDF user manual.
+   Rendered by Chromium via page.pdf(). Restyle the tokens for the client's brand;
+   the page-break and figure rules are load-bearing — change those carefully. */
+
+:root {
+  --brand:       #1F3C88;
+  --brand-light: #EEF2FB;
+  --text:        #1F2937;
+  --muted:       #6B7280;
+  --border:      #E5E7EB;
+  --amber:       #B45309;
+  --red:         #B91C1C;
+}
+
+* { box-sizing: border-box; }
+
+/* Without this Chromium drops every background colour when printing. */
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.5;
+  font-size: 10.5pt;
+}
+
+/* Paged media. build-pdf.mjs sets preferCSSPageSize so this wins. */
+@page { size: A4; margin: 18mm 16mm 22mm 16mm; }
+
+/* --- Cover ------------------------------------------------------------- */
+.cover {
+  page-break-after: always;
+  height: 257mm;                        /* A4 height minus @page margins */
+  margin: -18mm -16mm -22mm -16mm;      /* bleed to the paper edge */
+  padding: 28mm 22mm;
+  display: flex; flex-direction: column; justify-content: space-between;
+  background: linear-gradient(160deg, var(--brand) 0%, #2a4ca8 100%);
+  color: #fff;
+}
+.cover h1 { font-size: 30pt; margin: 0; line-height: 1.15; }
+.cover .meta { font-size: 10pt; opacity: .85; }
+
+/* --- Table of contents -------------------------------------------------- */
+.toc { page-break-after: always; }
+.toc ol { list-style: none; padding-left: 0; counter-reset: section; }
+.toc li {
+  counter-increment: section;
+  display: flex; align-items: baseline; gap: 8pt;
+  padding: 4pt 0; border-bottom: .5pt dotted var(--border);
+}
+.toc li::before { content: counter(section) '.'; color: var(--brand); font-weight: 600; min-width: 18pt; }
+.toc li .pageno { margin-left: auto; color: var(--muted); }
+.toc .sub { padding-left: 22pt; font-size: 9.5pt; }
+.toc .sub::before { content: ''; min-width: 0; }
+
+/* --- Chapters ----------------------------------------------------------- */
+section.chapter { page-break-before: always; }
+section.chapter h2 {
+  font-size: 17pt; color: var(--brand);
+  border-bottom: 2pt solid var(--brand); padding-bottom: 4pt; margin-bottom: 10pt;
+}
+h3 { font-size: 12pt; margin-top: 14pt; }
+h4 { font-size: 10.5pt; margin-top: 10pt; color: var(--brand); }
+.chapter-intro { color: var(--muted); font-size: 10pt; }
+
+/* --- Figures ------------------------------------------------------------ */
+/* page-break-inside: avoid is what stops a screenshot being sliced in half. */
+figure.shot {
+  margin: 12pt 0;
+  page-break-inside: avoid;
+  border: .5pt solid var(--border); border-radius: 6pt;
+  overflow: hidden; background: #fff;
+}
+figure.shot img { display: block; width: 100%; height: auto; }
+figure.shot figcaption {
+  background: var(--brand-light); color: var(--brand);
+  font-size: 9pt; padding: 4pt 8pt; border-top: .5pt solid var(--border); font-weight: 500;
+}
+
+/* --- Callouts ----------------------------------------------------------- */
+.callout {
+  border-left: 3pt solid var(--brand); background: var(--brand-light);
+  padding: 8pt 10pt; margin: 12pt 0; border-radius: 0 4pt 4pt 0;
+  page-break-inside: avoid;
+}
+.callout strong {
+  display: block; font-size: 9pt; text-transform: uppercase;
+  letter-spacing: 1pt; margin-bottom: 3pt; color: var(--brand);
+}
+.callout.warning { border-left-color: var(--amber); background: #FFF8EE; }
+.callout.warning strong { color: var(--amber); }
+.callout.danger  { border-left-color: var(--red);   background: #FEF2F2; }
+.callout.danger strong { color: var(--red); }
+
+/* --- Tables ------------------------------------------------------------- */
+table { border-collapse: collapse; width: 100%; margin: 10pt 0; font-size: 9.5pt; page-break-inside: avoid; }
+th {
+  background: var(--brand); color: #fff; padding: 6pt 8pt; text-align: left;
+  font-size: 9pt; text-transform: uppercase; letter-spacing: .5pt;
+}
+td { padding: 5pt 8pt; border-bottom: .5pt solid var(--border); vertical-align: top; }
+tr:nth-child(even) td { background: #FAFBFC; }
+
+/* A table taller than a page cannot avoid a break — let it split and repeat
+   the header rather than overflowing off the page. */
+table.long { page-break-inside: auto; }
+table.long thead { display: table-header-group; }
+
+/* --- Numbered steps ----------------------------------------------------- */
+ol.steps { counter-reset: step; list-style: none; padding-left: 0; }
+ol.steps li {
+  counter-increment: step; position: relative;
+  padding-left: 28pt; margin-bottom: 8pt; page-break-inside: avoid;
+}
+ol.steps li::before {
+  content: counter(step);
+  position: absolute; left: 0; top: 0;
+  width: 18pt; height: 18pt; line-height: 18pt;
+  border-radius: 50%; background: var(--brand); color: #fff;
+  font-size: 9pt; font-weight: 600; text-align: center;
+}
+
+/* --- Inline bits -------------------------------------------------------- */
+code, .field {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 9pt; background: var(--brand-light); color: var(--brand);
+  padding: 1pt 4pt; border-radius: 3pt;
+}
+.keep-together { page-break-inside: avoid; }

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-code-engineer",
+  "description": "A maintained CLAUDE.md and the skills that make Claude Code own work end to end.",
+  "owner": {
+    "name": "Muhammad Ali",
+    "url": "https://github.com/makieali"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-engineer",
+      "displayName": "Claude Code Engineer",
+      "description": "Twelve skills in four families: connect Claude Code to your repos, servers and task board; plan, execute and review with external verification; verify UI in a real browser; ship PDF manuals; and survive long sessions with a written handoff.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Muhammad Ali",
+        "url": "https://github.com/makieali"
+      },
+      "homepage": "https://github.com/makieali/claude-code-engineer",
+      "category": "development",
+      "source": "./",
+      "keywords": [
+        "agentic-coding",
+        "skills",
+        "code-review",
+        "planning",
+        "verification",
+        "context-engineering"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+claude-code-engineer
+Copyright (c) 2026 Muhammad Ali
+
+Portions of CLAUDE.md and AGENTS.md (the four principles in sections 1-4) are
+adapted from "andrej-karpathy-skills" by Forrest Chang
+(https://github.com/forrestchang/andrej-karpathy-skills, now under the
+multica-ai organization), used under the MIT License and derived from Andrej
+Karpathy's January 2026 public observations on LLM coding failure modes.
+Andrej Karpathy did not write, and has not endorsed, that file or this
+derivative. See the Attribution section of README.md.
