@@ -16,7 +16,8 @@ process, use a workflow. Only always-on guidance belongs here.
 
 ## Attribution
 
-Sections 1–4 are Forrest Chang's `andrej-karpathy-skills` file, derived from Andrej
+Sections 1–4 are Forrest Chang's `andrej-karpathy-skills` file (now hosted at
+`multica-ai/andrej-karpathy-skills`), derived from Andrej
 Karpathy's January 2026 observations on LLM coding failure modes. Karpathy wrote the
 diagnosis; he did not write the file and has not endorsed it.
 

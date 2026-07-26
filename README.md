@@ -237,7 +237,7 @@ first run.</td></tr>
 ## Attribution
 
 Sections 1–4 of `CLAUDE.md` are from
-[Forrest Chang's `andrej-karpathy-skills`](https://github.com/forrestchang/andrej-karpathy-skills),
+[Forrest Chang's `andrej-karpathy-skills`](https://github.com/multica-ai/andrej-karpathy-skills),
 derived from Andrej Karpathy's January 2026 observations on LLM coding failure modes.
 
 **Karpathy wrote the diagnosis, not the file, and has not endorsed either it or this fork.**
