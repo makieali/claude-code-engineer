@@ -7,6 +7,25 @@ was verified, not when the model shipped.
 
 ## 2026-07-26
 
+### Two corrections found by fact-checking the skills against their own sources
+
+Both were caught by working through every factual claim in the repo rather than by using it,
+which is the failure mode this repo keeps re-learning: a claim nobody re-read is a claim
+nobody checked.
+
+- **`/architect` listed five status values where the pipeline uses seven.** The canonical
+  list omitted `needs_fixes` and `done` even though `/reviewer` sets both, `/driver` branches
+  on both, and the review loop cannot terminate without them. An executor following the file
+  literally had no legal value for "review asked for changes". Restored, with an explicit
+  note that the executor never writes `done`.
+
+- **The upstream attribution URL had moved.** `forrestchang/andrej-karpathy-skills` now
+  redirects (HTTP 301) to `multica-ai/andrej-karpathy-skills`, an organisation account.
+  Forrest Chang remains the top contributor, so the attribution itself is unchanged; only
+  the link is stale. Updated in `README.md` and `CLAUDE.md`. Verified against the GitHub API
+  on 2026-07-26.
+
+
 ### The pipeline was run end to end on a real repository
 
 Until now the skills were reviewed, not exercised. `/architect`, `/executor` and `/reviewer`

@@ -201,7 +201,8 @@ wrong, that is a re-plan, not an edit.
 - `confidence` — `low` means a human decides before execution starts. Say why in `plan.md`.
 
 **Status values, used only in `state/`:** `not_started` `in_progress` `needs_review`
-`blocked` `failed`.
+`needs_fixes` `blocked` `failed` `done`. The executor never writes `done` — the reviewer
+sets it after checking the work.
 
 `needs_fixes` and `done` are **never written** into `phase-N.json` — they are derived by
 `/driver` from the review file, because the reviewer is not allowed to write the executor's
